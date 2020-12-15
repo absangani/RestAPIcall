@@ -1,10 +1,10 @@
 <?php
 include "db/connect.php";
 echo "1234";
-$datbase = new Database();
-$db = $datbase->getConnection();
+// $datbase = new Database();
+// $db = $datbase->getConnection();
 
-class Product{
+class Login extends Database{
   
     // database connection and table name
     private $conn;
