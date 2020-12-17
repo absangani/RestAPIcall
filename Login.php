@@ -3,29 +3,16 @@
 
 class Login{
   
-    // database connection and table name
+    // database connection
     private $conn;
-    private $table_name = "products";
-  
-    // object properties
-    public $id;
-    public $name;
-    public $description;
-    public $price;
-    public $category_id;
-    public $category_name;
-    public $created;
   
     // constructor with $db as database connection
-    public function __construct($db,$username,$password){
+    public function __construct($db){
         $this->conn = $db;
-        $this->username = $username;
-        $this->password = $password;
-        // echo("123455");
     }
 
-    public function getdata(){
-        $query = "SELECT * FROM `user_data`";
+    public function getUserDetails($username){
+        $query = "SELECT * FROM `user_data` WHERE `user_username` = '".$username."'";
         $result = $this->conn->query($query);
         $row = $result -> fetch_assoc();
         return $row;
